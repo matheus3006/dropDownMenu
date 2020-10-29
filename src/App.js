@@ -119,7 +119,7 @@ return(
     >
       <div className="menus">
         <DropDownItem goToMenu="main" leftIcon={<ArrowIcon/>}>
-          <h2>My menu</h2>
+          <h2>My settings</h2>
         </DropDownItem>
         <DropDownItem leftIcon={<BoltIcon/>}>HTML</DropDownItem>
         <DropDownItem leftIcon={<BoltIcon/>}>CSS</DropDownItem>
