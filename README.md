@@ -1,3 +1,38 @@
+
+# dropDownMenu
+
+Simple project to learn how to make animated dropDown menu.
+
+<h1 align="center">
+    <img alt="image" title="dropdown" src="https://github.com/matheus3006/dropdownmenu/blob/main/dropdown.jpg" width="100%" />
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
