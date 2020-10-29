@@ -1,6 +1,4 @@
-import React, { useState,useEffect,useRef,CSSTransition } from 'react';
-
-import './App.css';
+import './index.css';
 import { ReactComponent as BellIcon } from './icons/bell.svg';
 import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
@@ -9,6 +7,9 @@ import { ReactComponent as CogIcon } from './icons/cog.svg';
 import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 function App() {
   return (
@@ -70,7 +71,7 @@ function DropDownMenu(){
         <a href="#" className="menu-item"
         onClick={()=> props.goToMenu && setActiveMenu(props.goToMenu)}>
         <span className="icon-button">{props.leftIcon}</span>{props.children}
-        <span className="icon-right">{props.righIcon}</span>
+        <span className="icon-right">{props.rightIcon}</span>
         </a>
     );
   }
@@ -80,11 +81,15 @@ return(
 
     <CSSTransition in={activeMenu === 'main'}
     timeout = {500}
-    className="menu-primary"
+    classNames="menu-primary"
     unmountOnExit
     onEnter={calcHeight}>
       <div className="menu">
-        <DropDownItem>My Profile</DropDownItem>
+        <DropDownItem
+        leftIcon="👤"
+        >
+          My Profile
+        </DropDownItem>
         <DropDownItem
         leftIcon = {<CogIcon/>}
         rightIcon = {<ChevronIcon/>}
@@ -100,15 +105,49 @@ return(
         >
           Animals
         </DropDownItem>
+
       </div>
     </CSSTransition>
   
 
+    <CSSTransition
+    in={activeMenu === 'settings'}
+    timeout={500}
+    classNames = 'menu-secondary'
+    unmountOnExit
+    onEnter={calcHeight}
+    >
+      <div className="menus">
+        <DropDownItem goToMenu="main" leftIcon={<ArrowIcon/>}>
+          <h2>My menu</h2>
+        </DropDownItem>
+        <DropDownItem leftIcon={<BoltIcon/>}>HTML</DropDownItem>
+        <DropDownItem leftIcon={<BoltIcon/>}>CSS</DropDownItem>
+        <DropDownItem leftIcon={<BoltIcon/>}>JavaScript</DropDownItem>
+        <DropDownItem leftIcon={<BoltIcon/>}>Awesome!</DropDownItem>
 
+      </div>
+    </CSSTransition>
   
+  <CSSTransition
+  in={activeMenu === 'animals'}
+  timeout={500}
+  classNames="menu-secondary"
+  unmountOnExit
+  onEnter = {calcHeight}>
+    <div className="menu">
+      <DropDownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+        <h2>Animals</h2>
+      </DropDownItem>
+      <DropDownItem leftIcon="🦘">Kangoroo</DropDownItem>
+      <DropDownItem leftIcon="🐸">Frog</DropDownItem>
+      <DropDownItem leftIcon="🦋">Horse? </DropDownItem>
+      <DropDownItem leftIcon="🦔"> Hedgehog</DropDownItem>
+  </div>
+  </CSSTransition>
   </div>
 
-)
+);
 
 }
 
